@@ -93,33 +93,10 @@ best_model_name = max(accuracies, key=accuracies.get)
 best_model = models[best_model_name]
 st.title(f"Best Model: {best_model_name}")
 
-# prediction
-# st.header("Predict Wine Quality")
-# st.sidebar.header("Input Wine Features")
-# user_data = {}
-# for col in X.columns:
-#     user_data[col] = st.sidebar.number_input(
-#         col,
-#         float(wine_df[col].min()),
-#         float(wine_df[col].max()),
-#         float(wine_df[col].mean()),
-#     )
-
-# user_df = pd.DataFrame([user_data])
-# if st.button("Predict"):
-#     scaled_input = scaler.transform(user_df)
-#     pred = best_model.predict(scaled_input)
-#     quality_score = int(pred[0])
-#     if quality_score >= 6:
-#         quality_label = "Good Quality"
-#     else:
-#         quality_label = "Bad Quality"
-
-#     st.success(f"Predicted Wine Quality Score: {quality_label}")
 import joblib
 
 joblib.dump(best_model, "wine_classifier_app.joblib")
-model = joblib.load("wine_Classifier_app.joblib")
+model = joblib.load("wine_classifier_app.joblib")
 # prediction
 st.header("Predict Wine Quality")
 st.sidebar.header("Input Wine Features")
